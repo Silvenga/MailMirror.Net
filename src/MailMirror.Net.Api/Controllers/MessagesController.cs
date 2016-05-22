@@ -1,9 +1,9 @@
 ﻿namespace MailMirror.Net.Api.Controllers
 {
-    using System.Linq;
     using System.Web.Http;
 
     using MailMirror.Net.Api.Data;
+    using MailMirror.Net.Common.Models;
 
     [RoutePrefix("api/messages")]
     public class MessagesController : ApiController
@@ -18,17 +18,18 @@
         [Route, HttpPost]
         public IHttpActionResult Import(Message message)
         {
-            _messagesDb.Messages.Add(message);
+            var result = _messagesDb.Import(message);
 
-            return Ok();
+            return result
+                ? (IHttpActionResult) Ok()
+                : BadRequest();
         }
 
         [Route, HttpGet]
         public IHttpActionResult List()
         {
             var messages = _messagesDb
-                .Messages
-                .ToList();
+                .ListAll();
 
             return Ok(messages);
         }
@@ -36,17 +37,15 @@
         [Route("{messageId}"), HttpGet]
         public IHttpActionResult Get(string messageId)
         {
-            var messages = _messagesDb
-                .Messages
-                .ToList()
-                .FirstOrDefault(x => x.MessageId == messageId);
+            var message = _messagesDb
+                .Find(messageId);
 
-            if (messages == null)
+            if (message == null)
             {
                 return NotFound();
             }
 
-            return Ok(messages);
+            return Ok(message);
         }
     }
 }

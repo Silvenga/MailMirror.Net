@@ -111,7 +111,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controllers\ImportMessageController.cs" />
+    <Compile Include="Controllers\MessagesController.cs" />
     <Compile Include="Data\MessagesDb.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

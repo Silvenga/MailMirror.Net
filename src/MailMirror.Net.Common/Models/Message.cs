@@ -1,4 +1,4 @@
-﻿namespace MailMirror.Net.Api.Controllers
+﻿namespace MailMirror.Net.Common.Models
 {
     using System;
 
