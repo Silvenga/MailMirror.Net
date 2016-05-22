@@ -13,7 +13,7 @@
 
         public Client(string host = null)
         {
-            _host = host ?? "http://localhost:{Constants.Port}/";
+            _host = host ?? $"http://localhost:{Constants.Port}/";
         }
 
         public async Task SendAsync(string eml, string postfixQueueId, string recipient, string sender)

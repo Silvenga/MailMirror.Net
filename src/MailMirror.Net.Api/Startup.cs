@@ -3,6 +3,7 @@
     using System.Web.Http;
 
     using MailMirror.Net.Api.Data;
+    using MailMirror.Net.Api.Middleware;
 
     using Ninject;
     using Ninject.Web.Common.OwinHost;
@@ -14,6 +15,8 @@
     {
         public void Configuration(IAppBuilder app)
         {
+            app.Use<LoggerMiddleware>();
+
             RegisterNinject(app);
             RegisterWebApi(app);
         }

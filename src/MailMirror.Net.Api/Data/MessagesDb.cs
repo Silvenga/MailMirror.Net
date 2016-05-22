@@ -43,7 +43,12 @@
             message.CreatedOn = DateTime.Now;
             message.ExpiresOn = message.CreatedOn.AddHours(1);
 
-            return Messages.Add(message);
+            var result = Messages.Add(message);
+
+            var status = result ? "success" : "failure";
+            Console.WriteLine($"Save of message {messageId ?? "No Id"} completed with {status}.");
+
+            return result;
         }
 
         public IEnumerable<Message> ListAll()

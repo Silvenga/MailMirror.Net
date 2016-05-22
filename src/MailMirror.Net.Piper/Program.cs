@@ -12,6 +12,7 @@
             {
                 Console.WriteLine("eml: stdin");
                 Console.WriteLine("<queueId> <recipient> <sender>");
+                throw new ArgumentException();
             }
 
             Task.Run(async () => await MainAsync(args)).Wait();
@@ -23,6 +24,8 @@
             var recipient = args[1];
             var sender = args[2];
             var eml = await Console.In.ReadToEndAsync();
+
+            Console.WriteLine("Sending post.");
 
             var client = new Client();
             await client.SendAsync(eml, queueId, recipient, sender);
