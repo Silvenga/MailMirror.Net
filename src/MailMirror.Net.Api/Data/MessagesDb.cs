@@ -36,7 +36,7 @@
                                          .Split(NewLineSeparator, StringSplitOptions.None)
                                          .FirstOrDefault(x => x.StartsWith(Constants.MessageIdHeader));
             var messageId = messageIdHeader
-                ?.Remove(Constants.MessageIdHeader.Length)
+                ?.Remove(0, Constants.MessageIdHeader.Length)
                  .Trim();
 
             message.MessageId = messageId;

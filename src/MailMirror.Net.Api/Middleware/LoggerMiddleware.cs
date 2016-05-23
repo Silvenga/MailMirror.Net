@@ -29,10 +29,8 @@
             await _next.Invoke(env);
             timer.Stop();
 
-            var responseHeaders = (IDictionary<string, string[]>) env["owin.ResponseHeaders"];
-            var contentLength = responseHeaders["Content-Length"].First();
             Console.WriteLine(
-                $"{DateTime.Now.ToLongTimeString()} {currentIndex} {timer.ElapsedMilliseconds}ms {env["owin.ResponseStatusCode"]} {env["owin.ResponseReasonPhrase"]} {contentLength} bytes");
+                $"{DateTime.Now.ToLongTimeString()} {currentIndex} {timer.ElapsedMilliseconds}ms {env["owin.ResponseStatusCode"]} {env["owin.ResponseReasonPhrase"]}");
         }
     }
 }
