@@ -12,12 +12,6 @@
 
         public string MessageId { get; set; }
 
-        public string PostfixQueueId { get; set; }
-
-        public string Sender { get; set; }
-
-        public string Recipient { get; set; }
-
         public string Eml { get; set; }
     }
 }

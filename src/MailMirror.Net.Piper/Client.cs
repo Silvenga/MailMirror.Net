@@ -16,14 +16,11 @@
             _host = host ?? $"http://localhost:{Constants.Port}/";
         }
 
-        public async Task SendAsync(string eml, string postfixQueueId, string recipient, string sender)
+        public async Task SendAsync(string eml)
         {
             var message = new Message
             {
-                Eml = eml,
-                PostfixQueueId = postfixQueueId,
-                Recipient = recipient,
-                Sender = sender
+                Eml = eml
             };
 
             using (var client = CreateClient())

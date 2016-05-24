@@ -10,7 +10,7 @@
     {
         private static void Main(string[] args)
         {
-            var baseAddress = $"http://localhost:{Constants.Port}";
+            var baseAddress = $"http://*:{Constants.Port}";
 
             using (WebApp.Start<Startup>(baseAddress))
             {
