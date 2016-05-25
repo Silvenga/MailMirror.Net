@@ -11,16 +11,24 @@ RUN \
 	echo "postfix postfix/main_mailer_type string Internet site" > preseed.txt && \
 	echo "postfix postfix/mailname string mailmirror.silvenga.com" >> preseed.txt && \
 	debconf-set-selections preseed.txt && \
-	DEBIAN_FRONTEND=noninteractive apt-get install -q -y postfix nano
+	DEBIAN_FRONTEND=noninteractive apt-get install -q -y postfix nano unzip
 	
 RUN \
 	echo "piper    unix  -       n       n       -       -       pipe" >> /etc/postfix/master.cf && \
 	echo "  flags=X user=piper argv=/usr/bin/mono /opt/MailMirror.Net.Piper.exe id test test" >> /etc/postfix/master.cf && \
 	useradd piper && \
-	useradd postconf -e mynetworks="0.0.0.0/0" && \
-	useradd postconf -e default_transport="piper" && \
+	postconf -e mynetworks="0.0.0.0/0" && \
+	postconf -e default_transport="piper"
    
-ADD bin/* /opt/
+ADD bin/start.sh /opt/
+	
+ADD https://ci.appveyor.com/api/projects/Silvenga/mailmirror-net/artifacts/src/MailMirror.Net.Api/bin/api.zip /tmp/api.zip
+ADD https://ci.appveyor.com/api/projects/Silvenga/mailmirror-net/artifacts/src/MailMirror.Net.Piper/bin/piper.zip /tmp/piper.zip
+	
+RUN \
+	unzip -o /tmp/api.zip -d /opt/ && \
+	unzip -o /tmp/piper.zip -d /opt/ && \
+	rm /tmp/*
 	
 EXPOSE 25
 EXPOSE 9000
