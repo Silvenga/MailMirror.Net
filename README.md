@@ -8,3 +8,5 @@ A development mail server that mirrors any emails sent to it, accessible with a 
 ## TODO
 
 - [ ] Don't use `mono-complete`
+- [ ] Expire messages automatically
+- [ ] Lookup by from address
