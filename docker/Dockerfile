@@ -20,7 +20,7 @@ RUN \
 	postconf -e mynetworks="0.0.0.0/0" && \
 	postconf -e default_transport="piper"
    
-ADD bin/start.sh /opt/
+ADD start.sh /opt/
 	
 ADD https://ci.appveyor.com/api/projects/Silvenga/mailmirror-net/artifacts/src/MailMirror.Net.Api/bin/api.zip /tmp/api.zip
 ADD https://ci.appveyor.com/api/projects/Silvenga/mailmirror-net/artifacts/src/MailMirror.Net.Piper/bin/piper.zip /tmp/piper.zip
