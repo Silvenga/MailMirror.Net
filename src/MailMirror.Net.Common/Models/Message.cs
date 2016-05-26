@@ -13,5 +13,6 @@
         public string MessageId { get; set; }
 
         public string Eml { get; set; }
+        public string From { get; set; }
     }
 }

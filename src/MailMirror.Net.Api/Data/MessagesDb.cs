@@ -17,6 +17,7 @@
     public class MessagesDb : IMessagesDb
     {
         private static readonly string[] NewLineSeparator = {"\r\n", "\n"};
+        private readonly EmlParser _parser = new EmlParser();
 
         public HashSet<Message> Messages { get; } = new HashSet<Message>();
 
@@ -32,21 +33,12 @@
                 throw new ArgumentNullException(nameof(message.Eml));
             }
 
-            var messageIdHeader = message.Eml
-                                         .Split(NewLineSeparator, StringSplitOptions.None)
-                                         .FirstOrDefault(x => x.StartsWith(Constants.MessageIdHeader));
-            var messageId = messageIdHeader
-                ?.Remove(0, Constants.MessageIdHeader.Length)
-                 .Trim();
-
-            message.MessageId = messageId;
-            message.CreatedOn = DateTime.Now;
-            message.ExpiresOn = message.CreatedOn.AddHours(1);
+            _parser.PopulateEml(message);
 
             var result = Messages.Add(message);
 
             var status = result ? "success" : "failure";
-            Console.WriteLine($"Save of message {messageId ?? "No Id"} completed with {status}.");
+            Console.WriteLine($"Save of message {message.MessageId ?? "No Id"} completed with {status}.");
 
             return result;
         }

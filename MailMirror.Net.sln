@@ -9,6 +9,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MailMirror.Net.Api", "src\M
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MailMirror.Net.Common", "src\MailMirror.Net.Common\MailMirror.Net.Common.csproj", "{44AE1304-014C-49E5-9477-BDE65F57444F}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{4C2F68C3-EE47-4C10-B91C-AD6783730E8C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{1A8E0F54-F928-43A8-84D0-44416276D4F1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MailMirror.Net.Api.Tests", "tests\MailMirror.Net.Api.Tests\MailMirror.Net.Api.Tests.csproj", "{E2E805AD-E83C-4F8E-BD25-D89A6CAA760B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,8 +33,18 @@ Global
 		{44AE1304-014C-49E5-9477-BDE65F57444F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{44AE1304-014C-49E5-9477-BDE65F57444F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{44AE1304-014C-49E5-9477-BDE65F57444F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E2E805AD-E83C-4F8E-BD25-D89A6CAA760B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2E805AD-E83C-4F8E-BD25-D89A6CAA760B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E2E805AD-E83C-4F8E-BD25-D89A6CAA760B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E2E805AD-E83C-4F8E-BD25-D89A6CAA760B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{71E7F70C-691B-488A-9E5B-1FF31DA42D78} = {4C2F68C3-EE47-4C10-B91C-AD6783730E8C}
+		{D02BCBC5-A724-4BFC-8CAE-BC302895E74E} = {4C2F68C3-EE47-4C10-B91C-AD6783730E8C}
+		{44AE1304-014C-49E5-9477-BDE65F57444F} = {4C2F68C3-EE47-4C10-B91C-AD6783730E8C}
+		{E2E805AD-E83C-4F8E-BD25-D89A6CAA760B} = {1A8E0F54-F928-43A8-84D0-44416276D4F1}
 	EndGlobalSection
 EndGlobal
