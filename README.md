@@ -15,4 +15,4 @@ docker pull silvenga/assp
 
 - [ ] Don't use `mono-complete`
 - [ ] Expire messages automatically
-- [ ] Lookup by from address
+- [X] Lookup by from address

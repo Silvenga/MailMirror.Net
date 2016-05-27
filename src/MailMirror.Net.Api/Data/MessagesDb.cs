@@ -11,12 +11,12 @@
         HashSet<Message> Messages { get; }
         bool Import(Message message);
         IEnumerable<Message> ListAll();
-        Message Find(string messageId);
+        Message FindByMessageId(string messageId);
+        IEnumerable<Message> FindByFrom(string @from);
     }
 
     public class MessagesDb : IMessagesDb
     {
-        private static readonly string[] NewLineSeparator = {"\r\n", "\n"};
         private readonly EmlParser _parser = new EmlParser();
 
         public HashSet<Message> Messages { get; } = new HashSet<Message>();
@@ -48,10 +48,15 @@
             return Messages.ToList();
         }
 
-        public Message Find(string messageId)
+        public Message FindByMessageId(string messageId)
         {
             return ListAll()
                 .FirstOrDefault(x => x.MessageId == messageId);
+        }
+
+        public IEnumerable<Message> FindByFrom(string @from)
+        {
+            return ListAll().Where(x => x.From == @from);
         }
     }
 }

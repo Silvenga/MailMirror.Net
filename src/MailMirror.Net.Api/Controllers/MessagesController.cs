@@ -38,12 +38,21 @@
         public IHttpActionResult Get(string messageId)
         {
             var message = _messagesDb
-                .Find(messageId);
+                .FindByMessageId(messageId);
 
             if (message == null)
             {
                 return NotFound();
             }
+
+            return Ok(message);
+        }
+
+        [Route("from/{fromRecipient}"), HttpGet]
+        public IHttpActionResult GetByFrom(string fromRecipient)
+        {
+            var message = _messagesDb
+                .FindByFrom(fromRecipient);
 
             return Ok(message);
         }
