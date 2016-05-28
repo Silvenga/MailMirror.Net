@@ -15,9 +15,10 @@
             using (WebApp.Start<Startup>(baseAddress))
             {
                 Console.WriteLine($"Running on {baseAddress}...");
-                Console.WriteLine("Enter twice to exit.");
-                Console.ReadLine();
-                Console.ReadLine();
+                Console.WriteLine("Type `exit` to shutdown.");
+                while (Console.ReadLine() != "exit")
+                {
+                }
             }
 
             Console.WriteLine("Exiting...");
