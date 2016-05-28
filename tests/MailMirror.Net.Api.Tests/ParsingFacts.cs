@@ -12,7 +12,7 @@
     public class ParsingFacts
     {
         private const string EmlDumpFile = "Assets/dump";
-        private string _eml;
+        private readonly string _eml;
 
         public ParsingFacts()
         {

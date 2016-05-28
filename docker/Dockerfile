@@ -6,7 +6,7 @@ RUN \
 	#echo "deb http://download.mono-project.com/repo/debian wheezy main" | sudo tee /etc/apt/sources.list.d/mono-xamarin.list && \
 	echo "deb http://download.mono-project.com/repo/debian nightly main" | sudo tee /etc/apt/sources.list.d/mono-nightly.list && \
 	DEBIAN_FRONTEND=noninteractive apt-get update && \
-	DEBIAN_FRONTEND=noninteractive apt-get install mono-complete -y
+	DEBIAN_FRONTEND=noninteractive apt-get install mono-runtime -y
 
 # Install postfix
 RUN \

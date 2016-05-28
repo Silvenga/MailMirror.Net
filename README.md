@@ -7,12 +7,18 @@ A development mail server that mirrors any emails sent to it, accessible with a 
 
 ## Usage
 
-```
-docker pull silvenga/assp
+```bash
+docker pull silvenga/mailmirror.net
+
+# 25/smtp, 3000/api
+docker run -p 9000:9000 -p 25:25 -d silvenga/mailmirror.net
+
+# Get all messages sent to container
+curl -X GET "http://localhost:9000/api/messages"
 ```
 
 ## TODO
 
-- [ ] Don't use `mono-complete`
+- [X] Don't use `mono-complete`
 - [ ] Expire messages automatically
 - [X] Lookup by from address
