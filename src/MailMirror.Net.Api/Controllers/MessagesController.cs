@@ -34,7 +34,7 @@
             return Ok(messages);
         }
 
-        [Route("{messageId}"), HttpGet]
+        [Route("id/{messageId}"), HttpGet]
         public IHttpActionResult Get(string messageId)
         {
             var message = _messagesDb
