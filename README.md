@@ -1,3 +1,5 @@
+![](/docs/icon.png)
+
 # MailMirror.Net
 
 [![Build](https://img.shields.io/appveyor/ci/Silvenga/mailmirror-net.svg?maxAge=2592000&style=flat-square&maxAge=300)](https://ci.appveyor.com/project/Silvenga/mailmirror-net) 
@@ -19,6 +21,5 @@ curl -X GET "http://localhost:9000/api/messages"
 
 ## TODO
 
-- [X] Don't use `mono-complete`
 - [ ] Expire messages automatically
-- [X] Lookup by from address
+- [ ] Create UI (download EML, delete messages, search, etc.) Aurelia?
