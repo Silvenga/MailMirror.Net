@@ -56,7 +56,7 @@
 
         public IEnumerable<Message> FindByFrom(string @from)
         {
-            return ListAll().Where(x => x.From == @from);
+            return ListAll().Where(x => x.FromAddress == @from);
         }
     }
 }

@@ -13,6 +13,11 @@
         public string MessageId { get; set; }
 
         public string Eml { get; set; }
-        public string From { get; set; }
+        public string FromAddress { get; set; }
+        public string FromDisplayName { get; set; }
+
+        public string Subject { get; set; }
+
+        public string PostfixQueueId { get; set; }
     }
 }

@@ -2,6 +2,8 @@
 {
     using System;
     using System.Linq;
+    using System.Net.Mail;
+    using System.Text.RegularExpressions;
 
     using MailMirror.Net.Common.Models;
 
@@ -13,6 +15,8 @@
         {
             SetMessageId(message.Eml, message);
             SetFrom(message.Eml, message);
+            SetSubject(message.Eml, message);
+            SetQueueId(message.Eml, message);
 
             message.CreatedOn = DateTime.Now;
             message.ExpiresOn = message.CreatedOn.AddHours(1);
@@ -42,7 +46,35 @@
                 ?.Remove(0, header.Length)
                  .Trim();
 
-            message.From = value;
+            if (value != null)
+            {
+                var address = new MailAddress(value);
+                message.FromAddress = address.Address;
+                message.FromDisplayName = address.DisplayName;
+            }
+        }
+
+        private static void SetSubject(string eml, Message message)
+        {
+            const string header = "Subject:";
+            var messageIdHeader = eml
+                .Split(NewLineSeparator, StringSplitOptions.None)
+                .FirstOrDefault(x => x.StartsWith(header));
+            var value = messageIdHeader
+                ?.Remove(0, header.Length)
+                 .Trim();
+
+            message.Subject = value;
+        }
+
+        private static void SetQueueId(string eml, Message message)
+        {
+            const string regex = "with ESMTP id (?<id>\\w{10})$";
+
+            var match = Regex.Match(eml, regex, RegexOptions.Multiline);
+            var value = match.Groups["id"].Value;
+
+            message.PostfixQueueId = value;
         }
     }
 }

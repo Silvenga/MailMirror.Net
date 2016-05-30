@@ -50,7 +50,42 @@
             message = parser.PopulateEml(message);
 
             // Assert
-            message.From.Should().Be("from-test@silvenga.com");
+            message.FromAddress.Should().Be("from-test@silvenga.com");
+            message.FromDisplayName.Should().Be("Name from");
+        }
+
+        [Fact]
+        public void Can_parse_subject()
+        {
+            var parser = new EmlParser();
+
+            var message = new Message
+            {
+                Eml = _eml
+            };
+
+            // Act
+            message = parser.PopulateEml(message);
+
+            // Assert
+            message.Subject.Should().Be("subject");
+        }
+
+        [Fact]
+        public void Can_parse_postfix_queue()
+        {
+            var parser = new EmlParser();
+
+            var message = new Message
+            {
+                Eml = _eml
+            };
+
+            // Act
+            message = parser.PopulateEml(message);
+
+            // Assert
+            message.PostfixQueueId.Should().Be("B7FC041B58");
         }
     }
 }
