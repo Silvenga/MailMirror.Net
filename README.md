@@ -23,3 +23,4 @@ curl -X GET "http://localhost:9000/api/messages"
 
 - [ ] Expire messages automatically
 - [ ] Create UI (download EML, delete messages, search, etc.) Aurelia?
+- [ ] Docker keeps sending line returns, find a better keepalive

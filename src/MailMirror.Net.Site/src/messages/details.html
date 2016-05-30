@@ -1,0 +1,7 @@
+<template>
+  <require from="formaters/time-formaters"></require>
+  <div>
+    <div>From ${message.From}</div>
+    <div>${message.CreatedOn | longTimeFormat} (${message.CreatedOn | timeAgoFormat})</div>
+  </div>
+</template>

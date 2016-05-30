@@ -1,0 +1,7 @@
+<template>
+    <h1>Viewing "${id}"</h1> 
+    <div>
+        Count: ${messages.length}
+        <compose view-model="./details" model.bind="m" repeat.for="m of messages"></compose>
+    </div>
+</template>

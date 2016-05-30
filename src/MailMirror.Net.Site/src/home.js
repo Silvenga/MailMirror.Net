@@ -1,17 +1,15 @@
 import {HttpClient} from 'aurelia-fetch-client';
+import {Router} from "aurelia-router";
 
 export class Home {
-    static inject() { return [HttpClient]; }
+    static inject() { return [HttpClient, Router]; }
 
-    constructor(client) {
+    constructor(client, router) {
         this.client = client;
-        this.loopId = "";
+        this.router = router;
+        this.email = "Mark Lopez <m@silvenga.com>";
     }
     submit() {
-        router.navigateToRoute('routeName', { id: 123 })
-    }
-
-    activate(params, routeConfig) {
-        
+        this.router.navigateToRoute('list', { id: this.email })
     }
 }

@@ -28,19 +28,20 @@
   },
   "dependencies": {
     "aurelia-bootstrapper-webpack": "^1.0.0-beta.1.0.2",
-    "aurelia-framework": "^1.0.0-beta.1.2.5",
-    "aurelia-logging-console": "1.0.0-beta.1.2.2",
-    "bootstrap": "^3.3.6",
-    "font-awesome": "^4.6.3",
-    "jquery": "^2.2.4",
     "aurelia-event-aggregator": "^1.0.0-beta.1.1.1",
     "aurelia-fetch-client": "^1.0.0-beta.1.1.0",
+    "aurelia-framework": "^1.0.0-beta.1.2.5",
     "aurelia-history-browser": "^1.0.0-beta.1.1.2",
+    "aurelia-logging-console": "1.0.0-beta.1.2.2",
     "aurelia-pal-browser": "^1.0.0-beta.1.1.4",
     "aurelia-polyfills": "^1.0.0-beta.1.0.0",
     "aurelia-router": "^1.0.0-beta.1.1.1",
     "aurelia-templating-binding": "^1.0.0-beta.1.1.1",
     "aurelia-templating-resources": "^1.0.0-beta.1.1.1",
-    "aurelia-templating-router": "^1.0.0-beta.1.1.1"
+    "aurelia-templating-router": "^1.0.0-beta.1.1.1",
+    "bootstrap": "^3.3.6",
+    "font-awesome": "^4.6.3",
+    "jquery": "^2.2.4",
+    "moment": "^2.13.0"
   }
 }

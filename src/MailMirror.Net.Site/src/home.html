@@ -1,13 +1,16 @@
 <template>
-  <section class="au-animate">
-    <h2>${heading}</h2>
-    <form role="form" submit.delegate="submit()">
-      <div class="form-group">
-        <label for="fn">First Name</label>
-        <input type="text" value.bind="loopId" class="form-control" id="fn" placeholder="first name">
+  <div class="page-header">
+    <h1>MxMirror Lookup</h1>
+  </div>
+  <div class="jumbotron">
+    <form role="form-inline" submit.delegate="submit()">
+      <label for="fa">From Address</label>
+      <div class="input-group">
+        <input type="text" value.bind="email" class="form-control" id="fa" placeholder="from@example.com">
+        <span class="input-group-btn">
+           <button class="btn btn-default" type="submit">Lookup</button>
+        </span>
       </div>
-      <button type="submit" class="btn btn-default">Submit</button>
     </form>
-  </section>
-  <a route-href="route: view; params.bind: { id: 'test' }">Test</a>
+  </div>
 </template>
