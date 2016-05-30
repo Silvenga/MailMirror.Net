@@ -7,9 +7,11 @@ export class Home {
     constructor(client, router) {
         this.client = client;
         this.router = router;
-        this.email = "m@silvenga.com";
+        this.email = "";
     }
     submit() {
-        this.router.navigateToRoute('list', { id: this.email })
+        if (this.email) {
+            this.router.navigateToRoute('list', { id: this.email })
+        }
     }
 }

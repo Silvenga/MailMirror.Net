@@ -1,10 +1,19 @@
 <template>
-  <h1>Viewing "${id}"</h1>
+  <div class="page-header">
+    <h1>Viewing messages for 
+    <small>${id}</small></h1>
+  </div>
   <div class="row">
     <div class="col-md-12">
       <compose model.bind="m"
                repeat.for="m of messages"
                view-model="./details"></compose>
+      <div if.bind="!messages.length">
+        <h2>No messages found. :(</h2>
+      </div>
+      <div if.bind="messages.length">
+        <span class="pull-right">${messages.length} messages</span>
+      </div>
     </div>
   </div>
 </template>

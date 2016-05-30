@@ -1,10 +1,12 @@
 <template>
   <require from="formaters/time-formaters"></require>
   <div class="panel panel-default">
-    <div class="panel-heading">${message.CreatedOn | longTimeFormat} (${message.CreatedOn | timeAgoFormat & signal:'every-second' })</div>
+    <div class="panel-heading">
+      ${message.CreatedOn | longTimeFormat} (${message.CreatedOn | timeAgoFormat & signal:'every-second' })
+      <span class="pull-right">${message.Id}</span>
+    </div>
     <div class="panel-body">
-      <div>Id: ${message.Id}</div>
-      <div>From: ${message.FromDisplayName} <${message.FromAddress}></div>
+      <div>From: ${message.FromDisplayName} &lt;${message.FromAddress}&gt;</div>
       <div>Subject: ${message.Subject} </div>
     </div>
   </div>

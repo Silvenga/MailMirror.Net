@@ -1,6 +1,7 @@
 var path = require('path');
 var AureliaWebpackPlugin = require('aurelia-webpack-plugin');
 var ProvidePlugin = require('webpack/lib/ProvidePlugin');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     devServer: {
@@ -16,13 +17,16 @@ module.exports = {
         ]
     },
     output: {
-        path: path.join(__dirname, 'build'),
+        path: path.join(__dirname, 'bin'),
         filename: 'bundle.js'
     },
     plugins: [
         new AureliaWebpackPlugin(),
+        new HtmlWebpackPlugin({
+            template: 'index.html',
+            filename: 'index.html'
+        }),
         new ProvidePlugin({
-            Promise: 'bluebird',
             $: 'jquery',
             jQuery: 'jquery',
             'window.jQuery': 'jquery' // this doesn't expose jQuery property for window, but expose it to every module
