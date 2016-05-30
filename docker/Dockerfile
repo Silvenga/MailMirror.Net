@@ -30,9 +30,11 @@ RUN \
 	
 	&& wget -P /tmp/ https://ci.appveyor.com/api/projects/Silvenga/mailmirror-net/artifacts/src/MailMirror.Net.Api/bin/api.zip \
 	&& wget -P /tmp/ https://ci.appveyor.com/api/projects/Silvenga/mailmirror-net/artifacts/src/MailMirror.Net.Piper/bin/piper.zip \
+	&& wget -P /tmp/ https://ci.appveyor.com/api/projects/Silvenga/mailmirror-net/artifacts/src/MailMirror.Net.Site/site.zip \
 	
 	&& unzip -o /tmp/api.zip -d /opt/ \
 	&& unzip -o /tmp/piper.zip -d /opt/ \	
+	&& unzip -o /tmp/site.zip -d /opt/Assets/ \	
 	
 	&& rm /tmp/* \
 	&& apt-get purge -y \
