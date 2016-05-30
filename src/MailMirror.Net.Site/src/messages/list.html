@@ -1,13 +1,9 @@
 <template>
   <h1>Viewing "${id}"</h1>
   <div class="row">
-    <div class="col-md-4 list-group"
-         repeat.for="m of messages">
-      <a class="list-group-item"
-         href="#">${m.Subject}</a>
-    </div>
-    <div class="col-md-8">
-      <compose model.bind="selected"
+    <div class="col-md-12">
+      <compose model.bind="m"
+               repeat.for="m of messages"
                view-model="./details"></compose>
     </div>
   </div>

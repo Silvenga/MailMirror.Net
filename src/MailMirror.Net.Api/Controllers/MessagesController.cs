@@ -1,5 +1,6 @@
 ﻿namespace MailMirror.Net.Api.Controllers
 {
+    using System.Linq;
     using System.Web.Http;
 
     using MailMirror.Net.Api.Data;
@@ -30,6 +31,16 @@
         {
             var messages = _messagesDb
                 .ListAll();
+
+            return Ok(messages);
+        }
+
+        [Route("list/from"), HttpGet]
+        public IHttpActionResult ListFrom()
+        {
+            var messages = _messagesDb
+                .ListAll()
+                .Select(x => x.FromAddress);
 
             return Ok(messages);
         }
