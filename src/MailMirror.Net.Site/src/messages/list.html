@@ -1,7 +1,14 @@
 <template>
-    <h1>Viewing "${id}"</h1> 
-    <div>
-        Count: ${messages.length}
-        <compose view-model="./details" model.bind="m" repeat.for="m of messages"></compose>
+  <h1>Viewing "${id}"</h1>
+  <div class="row">
+    <div class="col-md-4 list-group"
+         repeat.for="m of messages">
+      <a class="list-group-item"
+         href="#">${m.Subject}</a>
     </div>
+    <div class="col-md-8">
+      <compose model.bind="selected"
+               view-model="./details"></compose>
+    </div>
+  </div>
 </template>

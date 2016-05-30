@@ -6,6 +6,8 @@
     {
         // http://www.postfix.org/pipe.8.html
 
+        public Guid Id { get; set; }
+
         public DateTime CreatedOn { get; set; }
 
         public DateTime ExpiresOn { get; set; }

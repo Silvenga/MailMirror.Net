@@ -13,6 +13,7 @@
         IEnumerable<Message> ListAll();
         Message FindByMessageId(string messageId);
         IEnumerable<Message> FindByFrom(string @from);
+        Message FindById(string messageId);
     }
 
     public class MessagesDb : IMessagesDb
@@ -49,6 +50,12 @@
         }
 
         public Message FindByMessageId(string messageId)
+        {
+            return ListAll()
+                .FirstOrDefault(x => x.MessageId == messageId);
+        }
+
+        public Message FindById(string messageId)
         {
             return ListAll()
                 .FirstOrDefault(x => x.MessageId == messageId);

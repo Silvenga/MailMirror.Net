@@ -7,7 +7,7 @@ export class Home {
     constructor(client, router) {
         this.client = client;
         this.router = router;
-        this.email = "Mark Lopez <m@silvenga.com>";
+        this.email = "m@silvenga.com";
     }
     submit() {
         this.router.navigateToRoute('list', { id: this.email })

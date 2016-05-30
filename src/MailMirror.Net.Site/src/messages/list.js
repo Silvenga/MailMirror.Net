@@ -8,6 +8,7 @@ export class View {
         this.http = http;
         this.messages = [];
         this.id = "Unknown";
+        this.selected = {};
     }
 
     activate(params, routeConfig, navigationInstruction) {

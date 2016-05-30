@@ -34,11 +34,25 @@
             return Ok(messages);
         }
 
-        [Route("id/{messageId}"), HttpGet]
-        public IHttpActionResult Get(string messageId)
+        [Route("messageId/{messageId}"), HttpGet]
+        public IHttpActionResult GetByMessageId(string messageId)
         {
             var message = _messagesDb
                 .FindByMessageId(messageId);
+
+            if (message == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(message);
+        }
+
+        [Route("id/{id}"), HttpGet]
+        public IHttpActionResult GetById(string id)
+        {
+            var message = _messagesDb
+                .FindById(id);
 
             if (message == null)
             {

@@ -18,6 +18,7 @@
             SetSubject(message.Eml, message);
             SetQueueId(message.Eml, message);
 
+            message.Id = Guid.NewGuid();
             message.CreatedOn = DateTime.Now;
             message.ExpiresOn = message.CreatedOn.AddHours(1);
 
@@ -69,7 +70,7 @@
 
         private static void SetQueueId(string eml, Message message)
         {
-            const string regex = "with ESMTP id (?<id>\\w{10})$";
+            const string regex = "id (?<id>\\w{10})$";
 
             var match = Regex.Match(eml, regex, RegexOptions.Multiline);
             var value = match.Groups["id"].Value;

@@ -1,7 +1,8 @@
 <template>
   <require from="formaters/time-formaters"></require>
   <div>
-    <div>From ${message.From}</div>
-    <div>${message.CreatedOn | longTimeFormat} (${message.CreatedOn | timeAgoFormat})</div>
+    <div>From: ${message.FromDisplayName} <${message.FromAddress}></div>
+    <div>Subject: ${message.Subject} </div>
+    <div>${message.CreatedOn | longTimeFormat} (${message.CreatedOn | timeAgoFormat & signal:'every-second' })</div>
   </div>
 </template>
