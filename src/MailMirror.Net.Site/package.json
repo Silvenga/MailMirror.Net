@@ -4,7 +4,7 @@
   "description": "",
   "scripts": {
     "dev": "webpack-dev-server --config webpack.config.js --hot --inline --progress --devtool eval",
-    "prod": "webpack --progress -p"
+    "prod": "webpack -p --no-color"
   },
   "author": "",
   "license": "ISC",
