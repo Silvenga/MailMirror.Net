@@ -1,4 +1,4 @@
-![](/docs/icon.png)
+![](https://raw.githubusercontent.com/Silvenga/MailMirror.Net/master/docs/icon.png)
 
 # MailMirror.Net
 
@@ -22,5 +22,9 @@ curl -X GET "http://localhost:9000/api/messages"
 ## TODO
 
 - [ ] Expire messages automatically
-- [ ] Create UI (download EML, delete messages, search, etc.) Aurelia?
-- [ ] Docker keeps sending line returns, find a better keepalive
+- [ ] Create UI (download EML, delete messages, search, etc.) 
+- [X] Docker keeps sending line returns, find a better keepalive (maxing out CPU)
+- [ ] Create instructions on home page
+- [ ] 500 on favicon
+- [ ] 500 on random requests (likely do to custom logging middleware)
+- [ ] Remove polling
