@@ -1,6 +1,7 @@
 ﻿namespace MailMirror.Net.Api
 {
     using System;
+    using System.Threading;
 
     using MailMirror.Net.Common.Models;
 
@@ -18,6 +19,7 @@
                 Console.WriteLine("Type `exit` to shutdown.");
                 while (Console.ReadLine() != "exit")
                 {
+                    Thread.Sleep(100);
                 }
             }
 
