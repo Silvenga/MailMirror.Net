@@ -34,7 +34,7 @@ RUN \
 	
 	&& unzip -o /tmp/api.zip -d /opt/ \
 	&& unzip -o /tmp/piper.zip -d /opt/ \	
-	&& unzip -o /tmp/site.zip -d /opt/Assets/ \	
+	&& unzip -o /tmp/site.zip -d /opt/wwwroot/ \	
 	
 	&& rm /tmp/* \
 	&& apt-get purge -y \
