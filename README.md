@@ -24,7 +24,8 @@ curl -X GET "http://localhost:9000/api/messages"
 - [ ] Expire messages automatically
 - [ ] Create UI (download EML, delete messages, search, etc.) 
 - [X] Docker keeps sending line returns, find a better keepalive (maxing out CPU)
-- [ ] Create instructions on home page
+- [X] Create instructions on home page
 - [ ] 500 on favicon
 - [ ] 500 on random requests (likely do to custom logging middleware)
 - [ ] Remove polling
+- [ ] Ability to customise domain
