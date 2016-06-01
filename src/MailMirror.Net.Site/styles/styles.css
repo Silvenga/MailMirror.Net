@@ -1,9 +1,25 @@
 .page-host {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 80px;
-  bottom: 0;
-  overflow-x: hidden;
-  overflow-y: auto;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 80px;
+    bottom: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.home-panel {
+  height: 140px;
+}
+
+.vertical-line:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 20px;
+    left: 0px;
+    border-left: 1px solid #eee;
+}
+.email{
+  font-size: 24px;
 }

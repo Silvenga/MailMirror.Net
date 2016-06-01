@@ -2,15 +2,48 @@
   <div class="page-header">
     <h1>MxMirror Lookup</h1>
   </div>
-  <div class="jumbotron">
-    <form role="form-inline" submit.delegate="submit()">
-      <label for="fa">From Address</label>
-      <div class="input-group">
-        <input type="email" value.bind="email" class="form-control" id="fa" placeholder="from@example.com">
-        <span class="input-group-btn">
-           <button class="btn btn-default" type="submit">Lookup</button>
-        </span>
+  <div class="row">
+    
+    <div class="col-md-4">
+      <div class="panel panel-default home-panel">
+        <div class="panel-body pull-right">
+          <h3 class="text-right">To Address</h3>
+          <div class="email"><code>mail@mxmirror.net</code></div>
+        </div>
       </div>
-    </form>
+    </div>
+    
+    <div class="col-md-8">
+      <div class="panel panel-default home-panel vertical-line">
+        <div class="panel-body">
+          <form role="form-inline" submit.delegate="submit()">
+            <h3>From Address</h3>
+            <div class="input-group">
+              <input type="email" value.bind="email" class="form-control" placeholder="from@example.com">
+              <span class="input-group-btn">
+                <button class="btn btn-default" type="submit">Lookup</button>
+              </span>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+  
+  <div>
+   
+    <h2>What is this?</h2>
+    <p>MxMirror.net is a development mail server that mirrors any emails sent to it, accessible with a REST’ful API. Ideal for integration testing and troubleshooting.</p>
+    
+    <h2>Usage</h2>
+    <p>Send an email to <code>mail@mxmirror.net</code> from any email address (could be fake or random e.g. really+random@example.com). After MxMirror receives the message you can view the mirror by entering the from address above. </p>
+    <p>For example, in C#:</p>
+    <pre><code>var client = new SmtpClient(host: "mxmirror.net", port: 25);
+client.Send(from: "Name &lt;csharp@rocks.com&gt;", recipients: "mail@mxmirror.net", subject: "Subject", body: "Some body");</code></pre>
+
+    <h2>Notes</h2>
+    <p>All emails sent to this server is public (so don't send sensitive information). If you want to self-host you can do that do. Checkout my the GitHub repo <a href="https://github.com/Silvenga/MailMirror.Net">Silvenga/MailMirror.Net</a> for more information.</p>
+
   </div>
 </template>
