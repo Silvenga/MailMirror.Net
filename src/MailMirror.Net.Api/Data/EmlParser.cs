@@ -70,7 +70,7 @@
 
         private static void SetQueueId(string eml, Message message)
         {
-            const string regex = "id (?<id>\\w{10})$";
+            const string regex = "id (?<id>\\w{10})";
 
             var match = Regex.Match(eml, regex, RegexOptions.Multiline);
             var value = match.Groups["id"].Value;

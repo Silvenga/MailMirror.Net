@@ -39,7 +39,7 @@
             var result = Messages.Add(message);
 
             var status = result ? "success" : "failure";
-            Console.WriteLine($"Save of message {message.MessageId ?? "No Id"} completed with {status}.");
+            Console.WriteLine($"Save of message {message.Id} from {message.FromAddress} completed with {status}.");
 
             return result;
         }
