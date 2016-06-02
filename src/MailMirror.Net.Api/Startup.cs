@@ -3,7 +3,6 @@
     using System.Web.Http;
 
     using MailMirror.Net.Api.Data;
-    using MailMirror.Net.Api.Middleware;
 
     using Microsoft.Owin.FileSystems;
     using Microsoft.Owin.StaticFiles;
@@ -18,8 +17,6 @@
     {
         public void Configuration(IAppBuilder app)
         {
-            app.Use<LoggerMiddleware>();
-
             RegisterNinject(app);
             RegisterWebApi(app);
             RegisterStaticHosting(app);
