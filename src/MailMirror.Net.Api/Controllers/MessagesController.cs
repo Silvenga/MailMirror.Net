@@ -1,6 +1,11 @@
 ﻿namespace MailMirror.Net.Api.Controllers
 {
+    using System.IO;
     using System.Linq;
+    using System.Net;
+    using System.Net.Http;
+    using System.Net.Http.Headers;
+    using System.Text;
     using System.Web.Http;
 
     using MailMirror.Net.Api.Data;
@@ -80,6 +85,25 @@
                 .FindByFrom(fromRecipient);
 
             return Ok(message);
+        }
+
+        [Route("id/{id}/eml"), HttpGet]
+        public HttpResponseMessage GetByIdEml(string id)
+        {
+            var message = _messagesDb
+                .FindById(id);
+
+            if (message == null)
+            {
+                throw new HttpResponseException(HttpStatusCode.NotFound);
+            }
+
+            var response = new HttpResponseMessage(HttpStatusCode.OK);
+            var stream = new MemoryStream(Encoding.UTF8.GetBytes(message.Eml ?? ""));
+            response.Content = new StreamContent(stream);
+            response.Content.Headers.ContentType = new MediaTypeHeaderValue("message/rfc822");
+
+            return response;
         }
     }
 }
