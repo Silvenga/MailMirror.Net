@@ -12,7 +12,7 @@ RUN \
 	&& DEBIAN_FRONTEND=noninteractive apt-get update \
 	&& DEBIAN_FRONTEND=noninteractive apt-get install -y -q \
 		mono-runtime \
-		libmono-System* \
+		"^libmono-system.*4\.0-cil$" \
 		postfix \
 	&& rm -rf /var/lib/apt/lists/*
 
