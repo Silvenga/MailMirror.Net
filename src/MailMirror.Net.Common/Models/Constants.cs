@@ -4,6 +4,6 @@
     {
         public const int Port = 9000;
 
-        public const string MessageIdHeader = "X-MessageId:";
+        public const string MessageIdHeader = "X-MessageId";
     }
 }
