@@ -37,11 +37,17 @@
             _parser.PopulateEml(message);
 
             var result = Messages.Add(message);
+            PurgeExpired();
 
             var status = result ? "success" : "failure";
             Console.WriteLine($"Save of message {message.Id} from {message.FromAddress} completed with {status}.");
 
             return result;
+        }
+
+        private int PurgeExpired()
+        {
+            return Messages.RemoveWhere(x => x.ExpiresOn < DateTime.Now);
         }
 
         public IEnumerable<Message> ListAll()
